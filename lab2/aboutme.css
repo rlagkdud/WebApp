@@ -1,0 +1,63 @@
+body {
+	font-family: Helvetica, Verdana, sans_serif;
+	color: #939396;
+	background-color: #1D2475;
+	background-image: url("cse326bg.jpg");
+	background-repeat: no-repeat;
+	background-position: right top;
+	background-attachment: fixed;
+}
+h1{
+	font-size: 40pt;
+	color: #F7931E;
+	text-shadow: 3px -3px green;
+}
+h2{
+	color: #F7931E;
+}
+dl{
+	font-size: 70%;
+}
+dt{
+	font-weight: bold;
+	color: #FFF86B;
+}
+p::first-letter{
+	font-weight: bold;
+	font-size: 150%;
+}
+a:link{
+	color: #FF4F4F;
+	text-decoration: none;
+}
+a:visited{
+	color: #FF4F4F;
+	text-decoration: none;
+}
+a:hover{
+	color: #FF4F4F;
+	text-decoration: underline;
+}
+
+strong{
+	color: #FFF86B;
+}
+q{
+	color:#D1DFEB;
+}
+ul,ol,blockquote{
+	text-align: left;
+}
+table,th,td {
+	border-style: dotted;
+	border-collapse: collapse;
+}
+ul{
+	list-style-type: square;
+}
+img{
+	border: thick ridge #F7931E;
+}
+#no_border{
+	border-style: none;
+}
