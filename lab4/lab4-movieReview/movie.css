@@ -1,0 +1,128 @@
+body {
+	background-image: url("background.png");
+	font-size: 8pt;
+	font-family: Verdana, Tahoma, sans-serif;
+	margin: 0px;
+	padding: 0px;	
+}
+.banner{
+	background-image: url("bannerbg.png");
+	background-repeat: repeat-x;
+	background-size: auto 50px;	
+}
+.banner > img{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	width: 50%;
+	height: 50px;
+}
+h1 {
+	text-align: center;
+	font-size: 24pt;
+	text-shadow: 3px 3px #999999;
+}
+
+.overall{
+	border: solid 4px gray;
+	border-radius: 20px;
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	margin-bottom: 0;
+}
+/*idk*/
+
+.left{
+	width: 550px;
+}
+.left_image{
+	background-image: url("rbg.png");
+	background-repeat: repeat-x;
+	background-size: auto 83px;
+	vertical-align: bottom;
+	height: 83px;
+	font-weight: bold;
+	font-size: 48pt;
+	color: red;
+}
+
+.left_image > img{
+	float:left;
+}
+.col{
+	display: inline-block;
+	width: 47%;
+	margin-right: 2%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+.comment{
+	font-weight: bold;
+	font-size: 8pt;
+	background-color: #E8DC9B;
+	border: solid 2px gray;
+	border-radius: 10px;
+	padding: 8px;
+	overflow: hidden;
+	/*has 20pt of vertical space between reviews*/
+	
+}
+.comment > img{
+	margin-right: 5px;
+}
+.comment+p{
+	overflow: hidden;
+	margin-bottom: 20pt;
+}
+.comment+p > img{
+	float:left;
+	margin-left: 5px;
+}
+.ital{
+	font-style: italic;
+}
+.right{
+	float: right;
+	width: 250px;
+	background-color: #A2B964;
+	/*it is assumed that the 
+	general overview section will always be taller 
+	han the section of reviews to its left*/
+	height: auto;
+
+}
+.right > dl{
+	padding: 10pt;
+	font-size: 8pt;
+	font-family: Arial, sans-serif;	
+}
+dt{
+	font-weight: bold;
+}
+dd{
+	margin-bottom: 10pt;
+}
+ul{
+	list-style-type: none;
+	/*without indentation*/
+	padding: 0;
+}
+.footer{
+	background-color: #A2B964;
+	width: 100%;
+	padding: 5px;
+	padding-left: 50%;
+	padding-right: 50%;
+	margin-top: 150px;
+	/*idk*/
+	margin-bottom: 0;
+}
+.link{
+	opacity: 0.50;
+	position:fixed;	
+	bottom: 8px;
+	right: 0px;
+}
