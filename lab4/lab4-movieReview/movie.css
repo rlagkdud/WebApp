@@ -91,7 +91,7 @@ h1 {
 	/*it is assumed that the 
 	general overview section will always be taller 
 	han the section of reviews to its left*/
-	height: auto;
+	height: auto ;
 
 }
 .right > dl{
@@ -114,11 +114,9 @@ ul{
 	background-color: #A2B964;
 	width: 100%;
 	padding: 5px;
-	padding-left: 50%;
-	padding-right: 50%;
-	margin-top: 150px;
-	/*idk*/
-	margin-bottom: 0;
+	overflow: hidden;
+	text-align: center;
+	margin:0px;
 }
 .link{
 	opacity: 0.50;
