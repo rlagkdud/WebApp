@@ -12,11 +12,13 @@
 		<h1>My Music Page</h1>
 		
 		<!-- Ex 1: Number of Songs (Variables) -->
-		<p>
-			I love music.
-			I have 1234 total songs,
-			which is over 123 hours of music!
-		</p>
+		<?php $song_count = 5678; ?>
+			<p>
+				I love music.
+				I have <?=$song_count ?> total songs,
+				which is over <?=(int) ($song_count/10) ?> hours of music!
+			</p>
+		
 
 		<!-- Ex 2: Top Music News (Loops) -->
 		<!-- Ex 3: Query Variable -->
