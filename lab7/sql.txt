@@ -1,0 +1,93 @@
+create table student(
+	student_id int not null primary key,
+	name varchar(10) not null,
+	year tinyint not null default 1,
+	dept_no int not null,
+	major varchar(20)
+);
+create table department(
+	dept_no int not null primary key auto_increment,
+	dept_name varchar(20) not null unique,
+	office varchar(20) not null,
+	office_tel varchar(13)
+);
+
+alter table student
+	change column major major varchar(30);
+
+/*name is too long*/
+alter table student 
+	change column name name varchar(20);
+/*dept_name is too long*/
+alter table department
+	change column dept_name dept_name varchar(30) not null unique;
+
+desc student;
+
+alter table student
+	add column gender varchar(15);
+
+alter table student drop column gender;
+
+insert into student values (20070002, 'Jane Smith', 3, 4, 'Business Administration'); 
+insert into student values (20060001, 'Ashley Jackson', 4, 4, 'Business Administration');
+insert into student values (20030001, 'Liam Johnson', 4, 2, 'Electrical Engineering'); 
+insert into student values (20040003, 'Jacob Lee', 3, 2, 'Electrical Engineering');
+insert into student values (20060002, 'Noah Kim', 3, 1, 'Computer Science'); 
+insert into student values (20100002, 'Ava Lim', 3, 4, 'Business Administration');
+insert into student values (20110001, 'Emma Watson', 2, 1, 'Computer Science'); 
+insert into student values (20080003, 'Lisa Maria', 4, 3, 'Law');
+insert into student values (20040002, 'Jacob William', 4, 5, 'Law'); 
+insert into student values (20070001, 'Emily Rose', 4, 4, 'Business Administration');
+insert into student values (20100001, 'Ethan Hunt', 3, 4, 'Business Administration') ;
+insert into student values (20110002, 'Jason Mraz', 2, 1, 'Electrical Engineering');
+insert into student values (20030002, 'John Smith', 5, 1, 'Computer Science');
+insert into student values (20070003, 'Sophia Park', 4, 3, 'Law');
+insert into student values (20070007, 'James Michael', 2, 4, 'Business Administration'); 
+insert into student values (20100003, 'James Bond', 3, 1, 'Computer Science');
+insert into student values (20070005, 'Olivia Madison', 2, 5, 'English Language and Literature');
+
+insert into department(dept_name, office, office_tel) values ('Computer Science', 'Science Building 101', '02-3290-0123');
+insert into department(dept_name, office, office_tel) values ('Electrical Engineering', 'Engineering Building 401', '02-3290-2345');
+insert into department(dept_name, office, office_tel) values ('Law', 'Law Building 201', '02-3290-7896');
+insert into department(dept_name, office, office_tel) values ('Business Administration', 'Business Building 104', '02-3290-1112');
+insert into department(dept_name, office, office_tel) values ('English Language and Literature', 'Language Building 303', '02-3290-4412');
+
+<Ex 3>
+update department set dept_name="
+Electrical and Electronics Engineering" where dept_name="Electrical Engineering";
+
+insert into department(dept_name, office, office_tel) values ('Special Education','Education Building 403','02-3290-2347');
+
+update student set dept_no=6, major='Special Education' where name = 'Emma Watson' ;
+
+DELETE from student WHERE name='Jason Mraz';
+
+delete from student where name = 'John Smith';
+
+<Ex 4>
+select * from student where major='Computer Science';
+select student_id, year, major from student;
+select * from student where year=3
+select * from student where year=1 or year=2;
+select * from student where dept_no=(select dept_no from department where dept_name='Business Administration');
+
+<Ex 5>
+select * from student where student_id LIKE '%2007%';
+select * from student ORDER BY student_id;
+select major from student group by major having AVG(year)>3;
+select * from student where major='Business Administration' and  student_id like '%2007%' limit 2;
+
+<Ex 6>
+select role from roles join movies on roles.movie_id = movies.id where movies.name='Pi';
+select first_name, last_name from movies join roles on movies.id=roles.movie_id join actors on roles.actor_id = actors.id where name = 'Pi'; 
+SELECT first_name, last_name FROM actors JOIN roles ON actors.id = roles.actor_id JOIN movies ON movies.id = roles.movie_id WHERE movies.name = 'Kill Bill: Vol. 1' AND actors.id IN (SELECT actors.id FROM actors JOIN roles ON actors.id = roles.actor_id JOIN movies ON movies.id = roles.movie_id WHERE movies.name='Kill Bill: Vol. 2');
+select first_name, last_name from actors join roles ON actors.id = roles.actor_id JOIN movies ON roles.movie_id = movies.id GROUP BY actors.id ORDER BY COUNT(roles.actor_id) DESC LIMIT 7;
+select  genre from movies_genres JOIN movies ON movies_genres.movie_id = movies.id GROUP BY rank ORDER BY COUNT(movies.rank) DESC LIMIT 3;
+select first_name, last_name FROM directors JOIN directors_genres ON directors.id = directors_genres.director_id JOIN movies_directors ON movies_directors.director_id = directors.id JOIN movies ON movies.id = movies_directors.movie_id where directors_genres.genre='Thriller' GROUP BY directors.id ORDER BY COUNT(movies.id) DESC LIMIT 1;
+
+<Ex 7>
+select grade FROM grades JOIN courses ON grades.course_id = courses.id WHERE name = 'Computer Science 143';
+select students.name, grade FROM students JOIN grades ON students.id = grades.student_id JOIN courses ON grades.course_id = courses.id where courses.name = 'Computer Science 143' and grade in (select grade from grades where grade<='B-');
+select students.name, courses.name, grade FROM students JOIN grades ON students.id = grades.student_id JOIN courses ON grades.course_id = courses.id WHERE grade<='B-';
+select courses.name FROM courses JOIN grades ON courses.id = grades.course_id GROUP BY courses.name HAVING COUNT(grades.student_id)>=2;
