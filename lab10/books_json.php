@@ -38,10 +38,30 @@ for ($i = 0; $i < count($lines); $i++) {
 		print "\t\t\t\"category\" : \"$category\",\n";
 		print "\t\t\t\"year\" : $year,\n";
 		print "\t\t\t\"price\" : $price\n";
-		if ($i == count($lines) -1) {
-			print "\t\t}\n";
-		} else {
-			print "\t\t},\n";
+		if($category == 'children'){
+			if($i == count($lines)-1){
+				print "\t}\n";
+			} else{
+				print "\t},\n";
+			}
+		} else if($category == 'cooking'){
+			if($i == count($lines)-2){
+				print "\t}\n";
+			} else{
+				print "\t},\n";
+			}
+		} else if($category == 'finance'){
+			if($i == count($lines)-4){
+				print "\t}\n";
+			} else{
+				print "\t},\n";
+			}
+		} else{
+			if($i == count($lines)-5){
+				print "\t}\n";
+			} else{
+				print "\t},\n";
+			}
 		}
 	}
 }

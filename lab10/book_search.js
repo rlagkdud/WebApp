@@ -40,7 +40,7 @@ function showBooks_XML(ajax) {
 		var author = books[i].getElementsByTagName("author")[0].firstChild.nodeValue;
 		var year = books[i].getElementsByTagName("year")[0].firstChild.nodeValue;
 		var li = document.createElement("li");
-		li.innerHTML = `${title}, by${author} (${year})`;
+		li.innerHTML = `${title}, by ${author} (${year})`;
 		ul.appendChild(li);
 		// ul.innerHTML+='<li>'+title+','+author+','+year+','+'</li>';
 
@@ -48,8 +48,9 @@ function showBooks_XML(ajax) {
 }
 
 function showBooks_JSON(ajax) {
+	// alert(ajax.responseText);
 	var data = JSON.parse(ajax.responseText);
-	var ul =  $("books")
+	var ul =  $("books");
 	ul.innerHTML = ""
 	for (var i=0; i<data.books.length; i++) {
 		ul.innerHTML += "<li>" + data.books[i].title + ", by " + data.books[i].author + " (" + data.books[i].year + ") </li>";
